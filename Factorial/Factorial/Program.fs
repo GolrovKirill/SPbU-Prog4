@@ -1,17 +1,18 @@
 ﻿let rec factorial x acc =
-    if x < 0 || x > 31 then // For numbers greater than 31, you need to use libraries for counting large numbers 
+    if x < 0.0 || x > 31.0 || (x % 1.0 <> 0.0) then // For numbers greater than 31, you need to use libraries for counting large numbers 
         failwith "Incorrect number entered"
-    elif x <= 1 then 
+    elif x <= 1.0 then 
         acc
     else 
-        factorial (x - 1) (acc * x)
+        factorial (x - 1.0) (acc * x)
 
 [<EntryPoint>]
 let main argv =
-    let x = 31
+    let x = -2.765
+    let num = float x
     try
-        let result = factorial x 1
-        printfn "Result = %d" result
+        let result = factorial num 1.0
+        printfn $"Result = {result}"
     with
     | ex -> printfn "Ошибка: %s" ex.Message
     0
