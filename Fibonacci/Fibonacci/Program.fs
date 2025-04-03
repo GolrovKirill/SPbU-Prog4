@@ -1,13 +1,13 @@
-﻿let rec fibonacci lastNum firstNum secondNum = 
+﻿let rec fibonacci lastNum = 
     if lastNum = 0 then
-        firstNum
+        0
     elif lastNum = 1 then
-        secondNum
+        1
     else
-        let nextNum = firstNum + secondNum
-        fibonacci 
-            (lastNum - 1)
-            secondNum
-            nextNum
+        let rec fib firstNum secondNum count =
+            if count = 0 then firstNum
+            else fib secondNum (firstNum + secondNum) (count - 1)
+        
+        fib 0 1 lastNum
 
-printfn $"{fibonacci 100 0 1}"
+printfn $"{fibonacci 0}"
