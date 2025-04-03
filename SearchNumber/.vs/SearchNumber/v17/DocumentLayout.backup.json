@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Think\\Documents\\\u0423\u0447\u0451\u0431\u0430\\\u041F\u0440\u043E\u0433\u0430\\SPbU-Prog4\\SearchNumber\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9D2D3888-FCC0-4B74-9CA9-45AF7B0433E1}|SearchNumber\\SearchNumber.fsproj|c:\\users\\think\\documents\\\u0443\u0447\u0451\u0431\u0430\\\u043F\u0440\u043E\u0433\u0430\\spbu-prog4\\searchnumber\\searchnumber\\program.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "RelativeMoniker": "D:0:0:{9D2D3888-FCC0-4B74-9CA9-45AF7B0433E1}|SearchNumber\\SearchNumber.fsproj|solutionrelative:searchnumber\\program.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.fs",
+              "DocumentMoniker": "C:\\Users\\Think\\Documents\\\u0423\u0447\u0451\u0431\u0430\\\u041F\u0440\u043E\u0433\u0430\\SPbU-Prog4\\SearchNumber\\SearchNumber\\Program.fs",
+              "RelativeDocumentMoniker": "SearchNumber\\Program.fs",
+              "ToolTip": "C:\\Users\\Think\\Documents\\\u0423\u0447\u0451\u0431\u0430\\\u041F\u0440\u043E\u0433\u0430\\SPbU-Prog4\\SearchNumber\\SearchNumber\\Program.fs",
+              "RelativeToolTip": "SearchNumber\\Program.fs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-03T11:18:13.312Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
