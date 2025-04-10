@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Think\\Documents\\\u0423\u0447\u0451\u0431\u0430\\\u041F\u0440\u043E\u0433\u0430\\SPbU-Prog4\\PrimeNumber\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{950DA0AA-CB5F-4B13-B98F-44BD3F8360F1}|PrimeTests\\PrimeTests.fsproj|c:\\users\\think\\documents\\\u0443\u0447\u0451\u0431\u0430\\\u043F\u0440\u043E\u0433\u0430\\spbu-prog4\\primenumber\\primetests\\unittest1.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "RelativeMoniker": "D:0:0:{950DA0AA-CB5F-4B13-B98F-44BD3F8360F1}|PrimeTests\\PrimeTests.fsproj|solutionrelative:primetests\\unittest1.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D029168-7842-449F-98EC-0AB4DE9B7AC8}|PrimeNumber\\PrimeNumber.fsproj|c:\\users\\think\\documents\\\u0443\u0447\u0451\u0431\u0430\\\u043F\u0440\u043E\u0433\u0430\\spbu-prog4\\primenumber\\primenumber\\program.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "RelativeMoniker": "D:0:0:{1D029168-7842-449F-98EC-0AB4DE9B7AC8}|PrimeNumber\\PrimeNumber.fsproj|solutionrelative:primenumber\\program.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UnitTest1.fs",
+              "DocumentMoniker": "C:\\Users\\Think\\Documents\\\u0423\u0447\u0451\u0431\u0430\\\u041F\u0440\u043E\u0433\u0430\\SPbU-Prog4\\PrimeNumber\\PrimeTests\\UnitTest1.fs",
+              "RelativeDocumentMoniker": "PrimeTests\\UnitTest1.fs",
+              "ToolTip": "C:\\Users\\Think\\Documents\\\u0423\u0447\u0451\u0431\u0430\\\u041F\u0440\u043E\u0433\u0430\\SPbU-Prog4\\PrimeNumber\\PrimeTests\\UnitTest1.fs",
+              "RelativeToolTip": "PrimeTests\\UnitTest1.fs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-10T12:12:25.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.fs",
+              "DocumentMoniker": "C:\\Users\\Think\\Documents\\\u0423\u0447\u0451\u0431\u0430\\\u041F\u0440\u043E\u0433\u0430\\SPbU-Prog4\\PrimeNumber\\PrimeNumber\\Program.fs",
+              "RelativeDocumentMoniker": "PrimeNumber\\Program.fs",
+              "ToolTip": "C:\\Users\\Think\\Documents\\\u0423\u0447\u0451\u0431\u0430\\\u041F\u0440\u043E\u0433\u0430\\SPbU-Prog4\\PrimeNumber\\PrimeNumber\\Program.fs",
+              "RelativeToolTip": "PrimeNumber\\Program.fs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-10T11:35:56.618Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
