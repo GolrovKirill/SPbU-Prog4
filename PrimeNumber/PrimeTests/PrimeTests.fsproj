@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="UnitTest1.fs" />
-    <Compile Include="Program.fs" />
+    <Compile Include="PrimeNumberTest.fs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,5 +19,10 @@
     <PackageReference Include="NUnit.Analyzers" Version="4.4.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
   </ItemGroup>
+
+	<ItemGroup>
+		<!-- Ссылка на проект PrimeNumber -->
+		<ProjectReference Include="..\PrimeNumber\PrimeNumber.fsproj" />
+	</ItemGroup>
 
 </Project>
