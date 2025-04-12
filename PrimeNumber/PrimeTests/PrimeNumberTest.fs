@@ -14,7 +14,7 @@ module PrimeTests =
         selectPrimeNumber 3 |> should equal true
 
     [<Test>]
-    let``4 is not a prime number`` () =
+    let ``4 is not a prime number`` () =
         selectPrimeNumber 4 |> should equal false
 
     [<Test>]
