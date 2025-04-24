@@ -5,32 +5,27 @@ open FsUnit
 open MapTree
 
 [<Test>]
-let ``Test Creating a Binary Tree`` () =
-    let tree = createBinaryTree 5
-    tree |> should equal (Node(5, None, None))
+let ``Test mapBinaryTree with tree`` () =
+    let tree = (Node(5, Node(3, Empty, Empty), Node(7, Empty, Empty)))
+    let mappedTree = mapBinaryTree (fun x -> x * 2) tree
+    mappedTree |> should equal (Node(10, Node(6, Empty, Empty), Node(14, Empty, Empty)))
 
 [<Test>]
-let ``Test Adding Nodes to the Tree`` () =
-    let tree = createBinaryTree 5
-    let updatedTree = addNode tree 5 0 3
-    let finalTree = addNode updatedTree 5 1 7
-    finalTree |> should equal (Node(5, Some(Node(3, None, None)), Some(Node(7, None, None))))
-
-[<Test>]
-let ``Test Adding Nodes to Non-existent Position Throws Error`` () =
-    let tree = createBinaryTree 5
-    (fun () -> addNode tree 6 0 3 |> ignore) |> should throw typeof<System.Exception>
-
-[<Test>]
-let ``Test Mapping Over the Tree`` () =
-    let tree = createBinaryTree 5
-    let updatedTree = addNode tree 5 0 3
-    let finalTree = addNode updatedTree 5 1 7
-    let mappedTree = mapBinaryTree (fun x -> x * 2) finalTree
-    mappedTree |> should equal (Node(10, Some(Node(6, None, None)), Some(Node(14, None, None))))
-
-[<Test>]
-let ``Test Map on Empty Tree Returns Empty`` () =
+let ``Test mapBinaryTree with empty tree`` () =
     let tree = Empty
     let mappedTree = mapBinaryTree (fun x -> x * 2) tree
     mappedTree |> should equal Empty
+
+[<Test>]
+let ``Test iterMapBinaryTree with tree`` () =
+    let tree = (Node(5, Node(3, Empty, Empty), Node(7, Empty, Empty)))
+    let result = ref []
+    iterMap (fun x -> result := (x * 2)::!result) tree
+    !result |> should equal [14; 6; 10]
+
+[<Test>]
+let ``Test iterMap with empty tree`` () =
+    let tree = Empty
+    let result = ref []
+    iterMap (fun x -> result := (x * 2)::!result) tree
+    (!result |> List.isEmpty) |> should be True
