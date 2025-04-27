@@ -5,10 +5,20 @@ open FsUnit
 open MapTree
 
 [<Test>]
+let ``Test correct create simple tree with createTree`` () =
+    let tree = createTree 3 
+    tree |> should equal (Node(3, Node(2, Node(1, Empty, Empty), Node(1, Empty, Empty)), Node(2, Node(1, Empty, Empty), Node(1, Empty, Empty))))
+
+[<Test>]
+let ``Test correct create simple tree with createTreeCPS`` () =
+    let tree = createTreeCPS 3 
+    tree |> should equal (Node(3, Node(2, Node(1, Empty, Empty), Node(1, Empty, Empty)), Node(2, Node(1, Empty, Empty), Node(1, Empty, Empty))))
+
+[<Test>]
 let ``Test mapBinaryTree with tree`` () =
-    let tree = (Node(5, Node(3, Empty, Empty), Node(7, Empty, Empty)))
+    let tree = createTreeCPS 3 
     let mappedTree = mapBinaryTree (fun x -> x * 2) tree
-    mappedTree |> should equal (Node(10, Node(6, Empty, Empty), Node(14, Empty, Empty)))
+    mappedTree |> should equal (Node(6, Node(4, Node(2, Empty, Empty), Node(2, Empty, Empty)), Node(4, Node(2, Empty, Empty), Node(2, Empty, Empty))))
 
 [<Test>]
 let ``Test mapBinaryTree with empty tree`` () =
@@ -17,15 +27,28 @@ let ``Test mapBinaryTree with empty tree`` () =
     mappedTree |> should equal Empty
 
 [<Test>]
-let ``Test iterMapBinaryTree with tree`` () =
-    let tree = (Node(5, Node(3, Empty, Empty), Node(7, Empty, Empty)))
-    let result = ref []
-    iterMap (fun x -> result := (x * 2)::!result) tree
-    !result |> should equal [14; 6; 10]
+let ``Test mapBinaryTreeCPS with tree`` () =
+    let tree = createTreeCPS 2 
+    let mappedTree = mapBinaryTreeCPS (fun x -> x * 2) tree
+    mappedTree |> should equal (Node(4, Node(2, Empty, Empty), Node(2, Empty, Empty)))
 
 [<Test>]
-let ``Test iterMap with empty tree`` () =
+let ``Test mapBinaryTreeCPS with empty tree`` () =
     let tree = Empty
-    let result = ref []
-    iterMap (fun x -> result := (x * 2)::!result) tree
-    (!result |> List.isEmpty) |> should be True
+    let mappedTree = mapBinaryTreeCPS (fun x -> x * 2) tree
+    mappedTree |> should equal Empty
+
+[<Test>]
+let ``Test mapBinaryTreeIter with tree`` () =
+    let tree = createTreeCPS 3
+    let mappedList = mapBinaryTreeIter (fun x -> x * 2) tree
+    let mappedTree = buildTree mappedList
+    mappedTree |> should equal (Node(6, Node(4, Node(2, Empty, Empty), Node(2, Empty, Empty)), Node(4, Node(2, Empty, Empty), Node(2, Empty, Empty))))
+
+[<Test>]
+let ``Test mapBinaryTreeIter with empty tree`` () =
+    let tree = Empty
+    let mappedTree = mapBinaryTree (fun x -> x * 2) tree
+    mappedTree |> should equal Empty
+
+
