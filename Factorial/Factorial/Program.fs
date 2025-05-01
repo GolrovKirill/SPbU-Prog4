@@ -1,5 +1,5 @@
 ﻿/// The function returns the factorial of an integer x
-let rec factorial x =
+let factorial x =
     let rec calculate x acc = 
         match x with
         | Some x ->
