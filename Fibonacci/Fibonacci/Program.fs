@@ -1,13 +1,18 @@
-﻿let rec fibonacci lastNum = 
-    if lastNum = 0 then
-        0
-    elif lastNum = 1 then
-        1
-    else
-        let rec fib firstNum secondNum count =
-            if count = 0 then firstNum
-            else fib secondNum (firstNum + secondNum) (count - 1)
-        
-        fib 0 1 lastNum
+﻿/// Function that calculates Fibonacci numbers and accepts integers. 
+let fibonacci num = 
+    let rec calculate firstNum secondNum count =
+            match count with
+            | 0 -> firstNum
+            | _ -> calculate secondNum (firstNum + secondNum) (count - 1) 
+    
+    match num with
+    | 0 -> 0
+    | 1 -> 1
+    | num when num < 0 -> 
+        match num with
+        | num when ((abs num) % 2) <> 0 -> calculate 0 1 (abs num)
+        | num when ((abs num) % 2) = 0 -> -(calculate 0 1 (abs num))
+    | num when num > 1 ->
+        calculate 0 1 num
 
-printfn $"{fibonacci 0}"
+printfn $"{fibonacci -4}"
