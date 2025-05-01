@@ -1,18 +1,20 @@
-﻿let revers list = 
-    if List.isEmpty list then
-        []
-    else
-        let rec reversList firstList secondList =
-            if List.isEmpty firstList then
-                secondList
-            else reversList (List.tail firstList) ((List.head firstList) :: secondList)
+﻿/// The function that reverses a list takes a list of integers as a parameter.
+let reversal list =
+    match list with
+    | [] -> []
+    | _ ->
+        let rec reversalList firstList secondList =
+            match firstList with 
+            | [] -> secondList
+            | _ ->
+                reversalList (List.tail firstList) ((List.head firstList) :: secondList)
 
-        reversList list []
+        reversalList list []
 
 let list = [1; 2; 3; 4]
-let reversList = revers list
+let resultList = reversal list
 
-for element in reversList do
+for element in resultList do
     printf "%d " element
 
 
