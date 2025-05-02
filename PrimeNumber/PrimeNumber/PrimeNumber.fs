@@ -1,16 +1,14 @@
 ﻿module PrimeNumber
-
-// Сhecking a number for simplicity.
-let selectPrimeNumber x =
-    if x < 2 then false
-    else 
-        let rec select i =
-            if i * i > x then true
-            else
-                if x % i = 0 then false
-                else select (i+1)
-        select 2
-
-// Create a sequence with a prime number.
-let primeNumber = 
-    Seq.initInfinite (fun x -> x + 2) |> Seq.filter selectPrimeNumber
+    /// Function that checks the primality of a number.
+    let selectPrimeNumber x =
+        match x with
+        | x when x < 2 -> false
+        | _ -> 
+            let rec select i =
+                match i with
+                | i when i * i > x -> true
+                | _ -> 
+                    match x with
+                    | x when x % i = 0 -> false
+                    | _ -> select (i + 1)
+            select 2
