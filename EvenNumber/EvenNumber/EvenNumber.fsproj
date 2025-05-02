@@ -10,8 +10,4 @@
 		<Compile Include="EvenNumber.fs" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <PackageReference Include="FSharpLint" Version="0.2.8" />
-	</ItemGroup>
-
 </Project>
