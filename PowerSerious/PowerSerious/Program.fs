@@ -1,4 +1,11 @@
-﻿/// A function that reverses an input list of integers.
+﻿/// A function that checks whether two input parameters are integers.
+let checkInt n m =
+    let pair = (box n, box m)
+    match pair with
+    | (:? int, :? int) -> true
+    | _ -> false
+
+/// A function that reverses an input list of integers.
 let revers list = 
     match list with
     | [] -> []
@@ -20,13 +27,12 @@ let listPowerNumber n m =
         | _ ->
             listPower (i + 1) m (num * 2) (num :: list)
 
-    match (n, m) with
-    |(n, m) when n <= m ->
+    match ((n, m), checkInt n m) with
+    |((n, m), true) when n <= m ->
         let num = 1 <<< n
         let listResult = listPower 0 m num []
         revers listResult
-    | _ -> 
-        []
+    | _ -> []
 
 let printList = listPowerNumber 1 3
 match printList with
