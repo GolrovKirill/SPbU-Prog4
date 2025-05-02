@@ -42,8 +42,7 @@ let ``Test mapBinaryTreeCPS with empty tree`` () =
 let ``Test mapBinaryTreeIter with tree`` () =
     let tree = createTreeCPS 3
     let mappedList = mapBinaryTreeIter (fun x -> x * 2) tree
-    let mappedTree = buildTree mappedList
-    mappedTree |> should equal (Node(6, Node(4, Node(2, Empty, Empty), Node(2, Empty, Empty)), Node(4, Node(2, Empty, Empty), Node(2, Empty, Empty))))
+    mappedList |> should equal [6; 4; 2; 2; 4; 2; 2]
 
 [<Test>]
 let ``Test mapBinaryTreeIter with empty tree`` () =
