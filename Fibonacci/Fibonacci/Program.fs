@@ -11,8 +11,8 @@ let fibonacci num =
     | num when num < 0 -> 
         match num with
         | num when ((abs num) % 2) <> 0 -> calculate 0 1 (abs num)
-        | num when ((abs num) % 2) = 0 -> -(calculate 0 1 (abs num))
-    | num when num > 1 ->
+        | _ -> -(calculate 0 1 (abs num))
+    | _ ->
         calculate 0 1 num
 
 printfn $"{fibonacci -4}"
