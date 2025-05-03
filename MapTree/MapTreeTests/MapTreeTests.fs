@@ -50,4 +50,6 @@ let ``Test mapBinaryTreeIter with empty tree`` () =
     let mappedTree = mapBinaryTree (fun x -> x * 2) tree
     mappedTree |> should equal Empty
 
-
+[<EntryPoint>]
+let main argv =
+    0
