@@ -103,3 +103,7 @@ let ``calculateParseTreeCPS should calculate all operation in deep tree`` () =
     let tree = Symbol("+", Symbol("*", Symbol("-", Number(1.0), Number(2.0)), Number(3.0)), Symbol("/", Number(4.0), Number(5.0)))
     let result = calculateParseTreeCPS tree
     result |> should equal (Some -2.2)
+
+[<EntryPoint>]
+let main argv =
+    0
