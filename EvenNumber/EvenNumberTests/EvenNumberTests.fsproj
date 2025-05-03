@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+	<GenerateProgramFile>false</GenerateProgramFile>
     <TargetFramework>net9.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <IsPackable>false</IsPackable>
-    <GenerateProgramFile>false</GenerateProgramFile>
+	<OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
