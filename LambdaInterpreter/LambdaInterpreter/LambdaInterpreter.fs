@@ -140,8 +140,6 @@ let betaReduction exprTerm =
                 
             | App(e1', e2'), _ ->
                 beta (App((beta (App(e1', e2'))), beta e2))
-            | _ ->
-                App(beta e1, beta e2)
         | Abs(value, expr) -> 
             Abs(value, beta expr)
         | _ ->
