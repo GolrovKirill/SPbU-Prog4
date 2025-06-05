@@ -4,7 +4,7 @@ open System
 open System.Collections.Generic
 open System.Threading
 
-// Function that create Rhombus with lenth size n.
+/// Function that create Rhombus with length size n.
 let createRhombus n =
     let totalLines = 2 * n - 1
     let width = totalLines
@@ -32,6 +32,7 @@ let createRhombus n =
     
     generateLines 0 []
 
+/// Class implementing a safe queue.
 type BlockingQueue<'T>() =
     let queue = Queue<'T>()
     let locker = obj()
