@@ -8,7 +8,7 @@
 
         member this.WithInfected(newInfected: bool) = PC(number, os, newInfected)
 
-        member this.getProbabilityInfectedPC (probabilityRule: Map<string, float>) = 
+        member this.GetProbabilityInfectedPC (probabilityRule: Map<string, float>) = 
             match Map.tryFind this.OS probabilityRule with
             | Some value -> value
             | None -> 0.0
@@ -49,10 +49,7 @@
                     |> Set.unionMany    
                 let missingNeighbors = Set.difference allNeighbors existingIds
                 
-                if not missingNeighbors.IsEmpty then
-                    false
-                else
-                    true
+                missingNeighbors.IsEmpty
 
     // Function that return two lists when first contains pcs which possible infected second another pcs.
     let checkNetwork (mapPC: Map<int, PC>) (graph: Map<int, Set<int>>) 
@@ -72,7 +69,7 @@
                                 not (newVisited.Contains n) &&
                                 match Map.tryFind n mapPC with
                                 | Some pc -> 
-                                    pc.getProbabilityInfectedPC(probMap) > 0.0 
+                                    pc.GetProbabilityInfectedPC(probMap) > 0.0 
                                     && not pc.Infected
                                 | None -> false)
                         | None -> Set.empty
@@ -114,7 +111,7 @@
                     |> Set.filter (fun id ->
                         match Map.tryFind id state with
                         | Some pc when not pc.Infected ->
-                            random() <= pc.getProbabilityInfectedPC(probMap)
+                            random() <= pc.GetProbabilityInfectedPC(probMap)
                         | _ -> false)
             
                 let newState = 

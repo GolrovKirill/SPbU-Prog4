@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PointFree", "PointFree\PointFree.fsproj", "{8B28A123-CE92-4AAE-A9B4-2E7FC7876B37}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PointFree.Tests", "PointFree.Tests\PointFree.Tests.fsproj", "{FBD21477-E9F5-4103-82D5-A0533EF02287}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B28A123-CE92-4AAE-A9B4-2E7FC7876B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B28A123-CE92-4AAE-A9B4-2E7FC7876B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B28A123-CE92-4AAE-A9B4-2E7FC7876B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B28A123-CE92-4AAE-A9B4-2E7FC7876B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBD21477-E9F5-4103-82D5-A0533EF02287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD21477-E9F5-4103-82D5-A0533EF02287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD21477-E9F5-4103-82D5-A0533EF02287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD21477-E9F5-4103-82D5-A0533EF02287}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3ADFB38-7497-412E-A46F-9994C0EA8777}
+	EndGlobalSection
+EndGlobal
