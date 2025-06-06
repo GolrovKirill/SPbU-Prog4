@@ -8,21 +8,23 @@ type Lambda =
 // This function traverses a lambda calculus expression and returns two sorted lists:
 // one with all bound variables and another with all free variables found in the expression.
 let searchBoundAndFreeVariables exprTerm =
-    let rec search exprTerm resultBound resultFree cont =
+    let rec search exprTerm currentBound =
         match exprTerm with
-        | Var(value) when not (List.contains value resultBound)  ->
-            cont (resultBound, value :: resultFree)
+        | Var(value) -> 
+            if List.contains value currentBound then
+                ([], [])
+            else
+                ([], [value])
         | Abs(bound, expr) ->
-            search expr (bound :: resultBound) resultFree cont
+            let (innerBounds, innerFrees) = search expr (bound :: currentBound)
+            (bound :: innerBounds, innerFrees)
         | App(expr1, expr2) ->
-            search expr1 resultBound resultFree (fun (nextBound, nextFree) ->
-                search expr2 nextBound nextFree cont)
-        | _ ->
-            cont (resultBound, resultFree)
-    
-    let resultBound, resultFree = search exprTerm [] [] id
+            let (bounds1, frees1) = search expr1 currentBound
+            let (bounds2, frees2) = search expr2 currentBound
+            (bounds1 @ bounds2, frees1 @ frees2)
 
-    List.sort resultBound, List.sort resultFree
+    let (boundVars, freeVars) = search exprTerm []
+    (List.sort boundVars, List.sort freeVars)
 
 // This function performs alpha-conversion on two lambda calculus expressions.
 // It renames bound variables to avoid name collisions between the two expressions

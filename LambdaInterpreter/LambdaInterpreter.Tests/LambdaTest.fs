@@ -72,6 +72,15 @@ type SearchBoundAndFreeVariablesTests () =
         let (listBound, listFree) = searchBoundAndFreeVariables input
         List.sort listBound |> should equal ["x"]
 
+[<Test>]
+let ``Test1`` () =
+    let expr = App(Abs("x", Var("x")), Var("x"))
+    let result = searchBoundAndFreeVariables expr
+
+    let expectedBound = ["x"]
+    let expectedFree = ["x"]
+    result |> should equal (expectedBound, expectedFree)
+
 [<TestFixture>]
 type AlphaConversionTests() =
     [<Test>]
@@ -338,6 +347,17 @@ type BetaReductionTests () =
         let expr = App(Abs("a", App(Abs("b", Var("a")), Var("c"))), Var("d"))
         let result = betaReduction expr
         result |> should equal (Var("d"))
+
+    [<Test>]
+    member _.``Test13: 2^2`` () =
+        let abs var body = Abs(var, body)
+        let app e1 e2 = App(e1, e2)
+        let var v = Var (v)
+        let two = abs "s" (abs "z" (app (var "s") (app (var "s") (var "z"))))
+        let twoPowTwo = app two two
+        let result = betaReduction twoPowTwo
+        let four =  Abs("z", Abs("z'", App (Var "z", App (Var "z", App (Var "z", App (Var "z", Var "z'"))))))
+        result |> should equal four
   
 [<EntryPoint>]
 let private main _ = 0
