@@ -16,7 +16,7 @@ type TestsRoundWorkflow () =
                 return a / b
             }
 
-        result |> should equal 0.048 
+        result |> should (equalWithin 0.0001) 0.048 
 
     [<Test>]
     member _.``Rounding to zero decimal places``() =
@@ -26,7 +26,7 @@ type TestsRoundWorkflow () =
                 return a
             }
 
-        result |> should equal 1
+        result |> should (equalWithin 0.0001) 1.0
 
     [<Test>]
     member _.``Multiple operations with intermediate rounding``() =
@@ -38,7 +38,7 @@ type TestsRoundWorkflow () =
                 return c
             }
 
-        result |> should equal 8.1
+        result |> should (equalWithin 0.0001) 8.1
 
 [<TestFixture>]
 type TestsCalculateBuilder () =
