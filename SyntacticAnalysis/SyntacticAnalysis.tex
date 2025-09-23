@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathpazo}
+
+\begin{document}
+
+\section{Grammar}
+\begin{align*}
+\text{Program}     &::= \text{Definition}^*\ \text{Term} \\
+\text{Definition}  &::= \texttt{let}\ \text{Var}\ \texttt{=}\ \text{Term} \\
+\text{Term}        &::= \text{Abstraction}\ |\ \text{Application}\ |\ \text{Atom} \\
+\text{Abstraction} &::= \texttt{\textbackslash}\ \text{Vars}\ \texttt{.}\ \text{Term} \\
+\text{Vars}        &::= \text{Var}\ \text{Vars}\ |\ \text{Var} \\
+\text{Application} &::= \text{Atom}\ \text{AppSuffix} \\
+\text{AppSuffix}   &::= \text{Atom}\ \text{AppSuffix}\ |\ \text{Atom} \\
+\text{Atom}        &::= \text{Var}\ |\ \texttt{(}\ \text{Term}\ \texttt{)} \\
+\text{Var}         &::= [a-zA-Z]+
+\end{align*}
+
+\section{Derivation Examples}
+
+\subsection{Example 1: \texttt{\textbackslash x.\textbackslash y.x y}}
+
+\begin{align*}
+&\text{Program} \\
+&\rightarrow \text{Term} \\
+&\rightarrow \text{Abstraction} \\
+&\rightarrow \texttt{\textbackslash}\ \text{Vars}\ \texttt{.}\ \text{Term} \\
+&\rightarrow \texttt{\textbackslash}\ \text{Var}\ \texttt{.}\ \text{Term} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \text{Term} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \text{Abstraction} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{\textbackslash}\ \text{Vars}\ \texttt{.}\ \text{Term} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{\textbackslash}\ \text{Var}\ \texttt{.}\ \text{Term} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{\textbackslash}\ \texttt{y}\ \texttt{.}\ \text{Term} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{\textbackslash}\ \texttt{y}\ \texttt{.}\ \text{Application} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{\textbackslash}\ \texttt{y}\ \texttt{.}\ \text{Atom}\ \text{AppSuffix} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{\textbackslash}\ \texttt{y}\ \texttt{.}\ \text{Var}\ \text{AppSuffix} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{\textbackslash}\ \texttt{y}\ \texttt{.}\ \texttt{x}\ \text{AppSuffix} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{\textbackslash}\ \texttt{y}\ \texttt{.}\ \texttt{x}\ \text{Atom} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{\textbackslash}\ \texttt{y}\ \texttt{.}\ \texttt{x}\ \text{Var} \\
+&\rightarrow \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{\textbackslash}\ \texttt{y}\ \texttt{.}\ \texttt{x}\ \texttt{y} \\
+&= \texttt{\textbackslash x.\textbackslash y.x y}
+\end{align*}
+
+\subsection{Example 2: \texttt{let I = \textbackslash x.x in I I}}
+
+\begin{align*}
+&\text{Program} \\
+&\rightarrow \text{Definition}\ \text{Program} \\
+&\rightarrow \texttt{let}\ \text{Var}\ \texttt{=}\ \text{Term}\ \text{Program} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \text{Term}\ \text{Program} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \text{Abstraction}\ \text{Program} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \text{Vars}\ \texttt{.}\ \text{Term}\ \text{Program} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \text{Var}\ \texttt{.}\ \text{Term}\ \text{Program} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \text{Term}\ \text{Program} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \text{Atom}\ \text{Program} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \text{Var}\ \text{Program} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{x}\ \text{Program} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{x}\ \text{Term} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{x}\ \text{Application} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{x}\ \text{Atom}\ \text{AppSuffix} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{x}\ \text{Var}\ \text{AppSuffix} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{x}\ \texttt{I}\ \text{AppSuffix} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{x}\ \texttt{I}\ \text{Atom} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{x}\ \texttt{I}\ \text{Var} \\
+&\rightarrow \texttt{let}\ \texttt{I}\ \texttt{=}\ \texttt{\textbackslash}\ \texttt{x}\ \texttt{.}\ \texttt{x}\ \texttt{I}\ \texttt{I} \\
+&= \texttt{let I = \textbackslash x.x I I}
+\end{align*}
+
+
+\end{document}
