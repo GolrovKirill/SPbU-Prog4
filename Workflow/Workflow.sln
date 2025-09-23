@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36121.58 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Workflow", "Workflow\Workflow.fsproj", "{89827348-F3B3-4924-A590-7462965F0810}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Workflow.Tests", "Workflow.Tests\Workflow.Tests.fsproj", "{EE9BA53D-8744-402C-8D38-CEB58B21796B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89827348-F3B3-4924-A590-7462965F0810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89827348-F3B3-4924-A590-7462965F0810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89827348-F3B3-4924-A590-7462965F0810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89827348-F3B3-4924-A590-7462965F0810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9BA53D-8744-402C-8D38-CEB58B21796B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9BA53D-8744-402C-8D38-CEB58B21796B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9BA53D-8744-402C-8D38-CEB58B21796B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9BA53D-8744-402C-8D38-CEB58B21796B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53BB2437-BE1E-46A9-B712-FC96873A4FDF}
+	EndGlobalSection
+EndGlobal
